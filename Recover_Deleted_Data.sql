@@ -13,7 +13,8 @@ Create PROCEDURE Recover_Deleted_Data_Proc
 @Date_From DATETIME='1900/01/01',
 @Date_To DATETIME ='9999/12/31'
 AS
- 
+
+Set NoCount on 
 DECLARE @RowLogContents VARBINARY(8000)
 DECLARE @TransactionID NVARCHAR(Max)
 DECLARE @AllocUnitID BIGINT
@@ -706,5 +707,6 @@ EXEC sp_executesql @sql
  
 GO
 
---EXEC Recover_Deleted_Data_Proc 'FindDelDB','dbo.tbl_Sample'
+-- drop proc Recover_Deleted_Data_Proc
+-- EXEC Recover_Deleted_Data_Proc 'FindDelDB','dbo.tbl_Sample'
 -- EXEC Recover_Deleted_Data_Proc NULL,'dbo.tbl_Sample'
